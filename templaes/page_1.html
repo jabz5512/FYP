@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocify</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style/index.css')}}">
+</head>
+<body>
+    <div class="bgAnimation" id="bgAnimation">
+        <div class="backgroundAmim">
+
+            
+        </div>
+    </div>
+    <div class="loader-wrapper">
+      <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+    {% block content %}{% endblock %}
+    <div class="container">
+        <nav>
+            <h1 ><span>Voci</span>fy</h1>
+        </nav>
+        <section>
+            <div class="textBox" action="/" method="POST">
+                <h1><span>Voci</span>fy</h1>
+                <p>"Transform voices, transcend boundaries.<br> 
+                    Vocify: Where your audio aspirations find a new vocal dimension."</p>
+                <form method="post" action="/add">
+                    <button type="submit" class="homeBtn" name="convert"   id="convert" style="--i:#fff;">Convert </button>
+                    <button type="submit" class="homeBtn" name="new_model" id="new_model"  style="--i:#fff;">New Model</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const loader = document.querySelector(".loader");
+        loader.classList.add("loader-hidden");
+        const bgAnimation = document.getElementById('bgAnimation');
+        const numberOfColorBoxes = 400;
+
+        for (let i = 0; i < numberOfColorBoxes; i++) {
+            const colorBox = document.createElement('div');
+            colorBox.classList.add('colorBox');
+            bgAnimation.append(colorBox);
+        }
+            // Show/hide loader during form submission
+            document.querySelectorAll('form').forEach(function(form) {
+            document.getElementById('convert').addEventListener('click', function() {
+            // Show loader on form submission
+            loader.classList.remove("loader-hidden");
+        });
+    });
+    });
+      
+    </script>
+</body>
+</html>

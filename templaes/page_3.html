@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Add Numbers</title>
+</head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{{url_for('static', filename='style/page_3.css')}}">
+<body>
+  
+  <div class="bgAnimation" id="bgAnimation">
+    <div class="backgroundAmim">
+    </div>
+  </div>
+  <div class="loader-wrapper">
+      <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+  <div class="container">
+    <nav>
+    <h1><span>Voci</span>fy</h1>
+  </nav>
+  <section>
+    <div class="textBox" >
+      <audio controls>
+        <source src="{{ url_for('static', filename='style/song.mp3') }}"  type="audio/mp3" download>
+        Your browser does not support the audio tag.
+      </audio>
+      <br>
+      <form>
+        <button type="submit" class="homeBtn" style="--i:#fff;">Download Audio</button>
+        <button onclick="goBack()" class="homeBtn" style="--i:#fff;">Back</button>
+      </form>
+    </div>
+    
+  </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const loader = document.querySelector(".loader");
+        loader.classList.add("loader-hidden");
+        const bgAnimation = document.getElementById('bgAnimation');
+        const numberOfColorBoxes = 400;
+
+        for (let i = 0; i < numberOfColorBoxes; i++) {
+            const colorBox = document.createElement('div');
+            colorBox.classList.add('colorBox');
+            bgAnimation.append(colorBox);
+        }
+            // Show/hide loader during form submission
+            document.querySelectorAll('form').forEach(function(form) {
+            document.getElementById('convert').addEventListener('click', function() {
+            // Show loader on form submission
+            loader.classList.remove("loader-hidden");
+            
+        });
+    });
+    });
+      
+    </script>
+</body>
+</html>
