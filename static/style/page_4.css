@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    color: #fff;
+    background: #111;
+    font-family: 'Poppins',sans-serif;
+    overflow: hidden; 
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    backdrop-filter: blur(1px);
+    pointer-events: all;
+}
+
+.form{
+  background: #00bfff3a;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+
+.container nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 40px;
+    height: 100px;
+    align-items: center;
+}
+
+.container nav h1{
+    font-size: 2.6em;
+    color: #fff;
+    position: relative;
+    cursor: pointer;
+    pointer-events: all;
+    letter-spacing: 4px;
+}
+
+.container nav h1 span{
+    color: #00bfff;
+}
+
+.container nav ul{
+    display: flex;
+}
+
+.container nav ul li a{
+    position: relative;
+    list-style: none;
+    font-size: 1.5em;
+    font-weight: 400;
+    padding: 12px 18px;
+    cursor: pointer;
+    pointer-events: all;
+    overflow: hidden;
+}
+
+.container nav ul li a::after{
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    width: 0%;
+    height: 3px;
+    left: 50%;
+    background: #00bfff;
+    transform: translateX(-50%);
+    transition: .3s;
+}
+
+.container nav li a:hover{
+    color: #00bfff;
+}
+
+.container nav li a:hover::after{
+    width: 80%;
+}
+
+.container section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px);
+    text-align: center;
+    pointer-events: all;
+}
+
+.white-link {
+    color: white; /* Set the color to white */
+    text-decoration: none; /* Remove underline, you can customize this as needed */
+}
+
+.textBox h1{
+    font-size: 3.4em;
+}
+
+.textBox h1 span{
+    color: #00bfff;
+}
+
+.textBox p{
+    font-size: 1.2em;
+}
+
+.textBox .homeBtn{
+    font-family: 'Poppins';
+    padding: 8px 18px;
+    margin: 16px 12px;
+    font-size: 26px;
+    background-color: transparent;
+    color: var(--i);
+    outline: none;
+    border: 3px solid;
+    border-radius: 4px;
+    cursor: pointer;
+    pointer-events: all;
+    transition: .3s;
+    font-weight: 600;
+}
+
+.textBox .homeBtn:hover{
+    background-color: var(--i);
+    color: #00bfff;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.search-results {
+  display: none; /* Initially hide the search results */
+  margin-top: 20px;
+  max-height: 150px; /* Set the maximum height for the results container */
+  overflow-y: auto; /* Enable vertical scrolling for the results container */
+}
+
+/* Additional styling for search result items */
+.search-results li {
+  list-style-type: none;
+  padding: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+}
+.search-results li:hover {
+  background-color: #00bfff; /* Change background color on hover */
+  color: #111;
+}
+.bgAnimation{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(20,1fr);
+    grid-template-rows: repeat(20,1fr);
+    background: #1d1d1d;
+    filter: saturate(2);
+    overflow: hidden;
+}
+
+.colorBox{
+    z-index: 2;
+    filter: brightness(1.1);
+    transition: 2s ease;
+    position: relative;
+    margin: 2px;
+    background: #1d1d1d;
+}
+
+.colorBox:hover{
+    background: #00bfff;
+    transition-duration: 0s;
+}
+
+.backgroundAmim{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: #00bfff;
+    filter: blur(60px);
+    animation: animBack 6s linear infinite;
+}
+
+@keyframes animBack {
+    0%{
+        top: -60px;
+    }
+    100%{
+        top: 120%;
+    }
+}
+.loader{ position: fixed;
+  top: 0;
+  Left: 0;
+  width: 100vw; 
+  height: 100vh;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  background-color: #111;
+  transition: opacity 0.75s, visibility 0.75s;
+  z-index: 1000;
+  }
+.loader-hidden{
+  opacity: 0;
+  visibility: hidden;
+  }
+.loader::after {
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 15px solid #dddddd;
+  border-top-color:  #00bfff;
+  border-radius: 50%;
+  animation: loading 0.75s ease infinite;
+  }
+@keyframes loading{
+  from{
+      transform: rotate(0turn);
+  }
+  to{
+      transform: rotate(1turn);
+  }
+
+  
+}
+
+
+
+/* Hide the default file input */
+
+/* Style for the file input text */
+.file-input-text {
+  margin-left: 10px;
+  font-size: 14px;
+  color: #555; /* Text color */
+}
